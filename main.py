@@ -1,7 +1,7 @@
 from generate.format import easyMail
 import re
 
-email = '/Users/cpratt/Python/easymail/text/20190628-Nasrin-Cultivation.txt'
+email = '/Users/cpratt/Python/easymail/text/28062019-Nasrin-Cultivation.txt'
 template = '/Users/cpratt/Python/easymail/templates/hero/hero_template.txt'
 hero_image = 'https://aaf1a18515da0e792f78-c27fdabe952dfc357fe25ebf5c8897ee.ssl.cf5.rackcdn.com/1839/Nasrin405.png?v=1558031582000'
 preview_text = 'One million people in 200 countries are demanding her freedom.'
