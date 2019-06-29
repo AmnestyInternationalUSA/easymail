@@ -153,7 +153,8 @@
 	</style>
 </head>
 <body bgcolor="#eeebda" data-gramm="false" leftmargin="0" marginheight="0" marginwidth="0" style="margin:0; padding:0;" topmargin="0"><!-- Preview Text -->
-<p style="display:none;font-size:1px;line-height:1;margin:0;padding:0;mso-hide:all;">%%PREVIEW_TEXT%%</p>
+<p style="display:none;font-size:1px;line-height:1;margin:0;padding:0;mso-hide:all;">%%PREVIEW_TEXT%%&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+</p>
 <!-- 100% background wrapper (grey background) -->
 
 <table bgcolor="#f3f3f3" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
@@ -164,7 +165,7 @@
 				<tbody><!-- Begin logo Row (no padding, full-width image) -->
 					<tr>
 						<td align="center" class="header" style="padding-top:0;padding-bottom:0;padding-left:0;padding-right:0;background-color:#fff;">
-						<p style="margin:0;padding:0;line-height:1;text-align:left;"><a data-custom-urls="[]" data-custom-urls-enabled="false" href="%%URL%%"><img alt="" src="https://aaf1a18515da0e792f78-c27fdabe952dfc357fe25ebf5c8897ee.ssl.cf5.rackcdn.com/1839/Smaller+Amnesty+Logo.jpg" style="width: 212px;" width="212" /></a></p>
+						<p style="margin:0;padding:0;line-height:1;text-align:left;"><a data-custom-urls="[]" data-custom-urls-enabled="false" href="{%%URL%%~logo}"><img alt="" src="https://aaf1a18515da0e792f78-c27fdabe952dfc357fe25ebf5c8897ee.ssl.cf5.rackcdn.com/1839/Smaller+Amnesty+Logo.jpg" style="width: 212px;" width="212" /></a></p>
 						</td>
 					</tr>
 					<!-- End logo Row --><!-- Begin Hero/Story Row -->
@@ -177,13 +178,14 @@
 					<!-- End Hero/Story Row --><!-- Begin Hero Banner Row (no padding, full-width image) -->
 					<tr>
 						<td align="center" class="header" style="padding-top:0;padding-bottom:0;padding-left:0;padding-right:0;background-color:#fff;">
-						<p style="margin-top:0;margin-bottom:0;padding:0;line-height:1;text-align:center;"><a data-custom-urls="[]" data-custom-urls-enabled="false" href="%%URL%%"><img alt="" class="responsive-image" data-ratio-lock="true" data-unit="%" src="%%HERO_BANNER_SOURCE%%" style="height: auto; width: 100%;" /></a></p>
+						<p style="margin-top:0;margin-bottom:0;padding:0;line-height:1;text-align:center;"><a data-custom-urls="[]" data-custom-urls-enabled="false" href="{%%URL%%~image}"><img alt="" class="responsive-image" data-ratio-lock="true" data-unit="%" src="%%HERO_BANNER_SOURCE%%" style="height: auto; width: 100%;" /></a></p>
 						</td>
 					</tr>
 					<!-- End Hero Banner Row --><!-- Begin One Column Content Row -->
 					<tr>
 						<td align="left" class="container-padding content" style="padding-left:24px;padding-right:24px;padding-top:30px;padding-bottom:30px;background-color:#fff;">
 						%%BODY_TEXT%%
+						%%BUTTON_FOOTER%%
 						</td>
 					</tr>
 					<!-- End One Column Content Row --><!-- Begin One Column Signature Row -->
@@ -195,7 +197,7 @@
 
 						<p class="message-content mobile-center" style="font-family:Arial, Helvetica, sans-serif;font-size:16px;line-height:1.5;margin-top:0;margin-bottom:1rem;text-align:left;color:#000;font-weight:normal;"><span style="font-size:16px;">Executive Director<br />
 						Amnesty International USA</span></p>
-						%%BUTTON_FOOTER%%
+
 						</td>
 					</tr>
 					<!-- End One Column Signature Row --><!-- Begin Single Column Row -->
