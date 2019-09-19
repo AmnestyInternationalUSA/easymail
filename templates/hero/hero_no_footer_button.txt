@@ -201,18 +201,11 @@
 %%BUTTON_FOOTER%%
 						</td>
 					</tr>
+
 					<!-- End One Column Signature Row --><!-- Begin Single Column Row -->
 					<tr>
 						<td align="left" class="container-padding content" style="padding-left:24px;padding-right:24px;padding-top:30px;padding-bottom:30px;background-color:#000;">
-						<center>
-						<div style="margin-bottom:1rem; padding: 0;"><!--[if mso]>
-							<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{%%DONATE_URL%%}" style="height:40px;v-text-anchor:middle;width:190px;" arcsize="0%" strokecolor="#fff100" fillcolor="#fff100">
-								<w:anchorlock />
-								<center style="color:#000;font-family:Arial, Helvetica, sans-serif;font-size:18px;font-weight:bold;">DONATE NOW</center>
-							</v:roundrect>
-							<![endif]--><a data-custom-urls="[]" data-custom-urls-enabled="false" href="{%%DONATE_URL%%}" style="background-color:#ff0;border:2px solid #ff0;border-radius:0px;color:#000;display:inline-block;font-family:Helvetica,Arial,Arial, Helvetica, sans-serif;font-size:18px;font-weight:bold;line-height:1.25;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;mso-hide:all;padding: .5rem 1rem;">DONATE NOW</a></div>
-						</center>
-						<p style="font-family:Arial, Helvetica, sans-serif;font-size:9px;line-height:1.4;margin-top:15;margin-bottom:0;text-align:center;color:#fff;"><span class="ios-address">&copy; 2019&nbsp;Amnesty International USA</span></p>
+						<p style="font-family:Arial, Helvetica, sans-serif;font-size:9px;line-height:1.4;margin-top:0;margin-bottom:0;text-align:center;color:#fff;"><span class="ios-address">&copy; 2019&nbsp;Amnesty International USA</span></p>
 
 						<p style="font-family:Arial, Helvetica, sans-serif;font-size:9px;line-height:1.4;margin-top:0;margin-bottom:15px;text-align:center;color:#fff;"><span class="ios-address">5 Penn Plaza, New York, NY 10001 | 1-800-AMNESTY</span></p>
 
@@ -222,7 +215,6 @@
 						<p style="font-family:Arial, Helvetica, sans-serif;font-size:9px;line-height:1.4;margin-top:0;margin-bottom:15px;text-align:center;color:#fff;"><a href="{unsubscribe_url~7646~3037}" style="color:#fff;text-decoration:underline;">Unsubscribe from all mailings immediately</a></p>
 						</td>
 					</tr>
-
 					<!-- End Single Column Row -->
 				</tbody>
 			</table>

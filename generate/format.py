@@ -2,12 +2,13 @@ import re
 
 
 class easyMail:
-    def __init__(self, template, uf_email_filepath, hero_image, preview_text, url, button=True, action=False):
+    def __init__(self, template, uf_email_filepath, hero_image, preview_text, url, donate_footer_url, credit, button=True, action=False):
         self.template = template
         self.uf_email_filepath = uf_email_filepath
         self.hero_image = hero_image
         self.preview_text = preview_text
         self.url = url
+        self.donate_footer_url = donate_footer_url
         self.button = button
         self.f_copy = ''
         self.f_hero = ''
@@ -17,6 +18,7 @@ class easyMail:
         self.hero_link_number = 1
         self.template_links = []
         self.action = action
+        self.credit = credit
 
     @staticmethod
     def load_template(template):
@@ -53,13 +55,22 @@ class easyMail:
     def format_hero(self):
         hero_uf = re.findall(str(self.format_block('../templates/hero/header_p.txt') + '.*?</p>'),
                              self.f_hero, re.S)
-        hero_uf = hero_uf[-1]
-        hero_f = re.sub('margin-bottom:1rem', 'margin-bottom:0', hero_uf, re.S)
-        self.f_hero = re.sub(hero_uf, hero_f, self.f_hero, re.S)
-        for link in range(len(re.findall("%%LINK%%(.*?)%%LINK%%", self.f_hero, re.S))):
-            self.f_hero = re.sub(r"(%%LINK%%)(.*?)(%%LINK%%)", (r"%s\2</a>" % self.format_hero_a_tag_url()),
-                                 self.f_hero, 1, re.S)
-            self.hero_link_number += 1
+        try:
+            hero_uf = hero_uf[-1]
+            hero_f = re.sub('margin-bottom:1rem', 'margin-bottom:0', hero_uf, re.S)
+            self.f_hero = re.sub(hero_uf, hero_f, self.f_hero, re.S)
+            for link in range(len(re.findall("%%LINK%%(.*?)%%LINK%%", self.f_hero, re.S))):
+                self.f_hero = re.sub(r"(%%LINK%%)(.*?)(%%LINK%%)", (r"%s\2</a>" % self.format_hero_a_tag_url()),
+                                     self.f_hero, 1, re.S)
+                self.hero_link_number += 1
+
+        except IndexError:
+            self.f_hero = ''
+
+    def format_credit(self):
+        credit_uf = self.format_block('../templates/hero/credit.txt')
+        credit_f = re.sub('%%CREDIT%%', self.credit, credit_uf, re.S)
+        return credit_f
 
     def format_body(self):
         self.f_body = re.sub("(%%HERO%%)(.*?)(%%HERO%%)", '', self.f_copy, re.S)
@@ -83,7 +94,12 @@ class easyMail:
         self.f_email = re.sub("%%BODY_TEXT%%", self.f_body, self.f_email)
         self.f_email = re.sub("%%HERO_BANNER_SOURCE%%", self.hero_image, self.f_email)
         self.f_email = re.sub("%%PREVIEW_TEXT%%", self.preview_text, self.f_email)
-        if self.button is True:
+        if self.action is False and self.button is True:
+            bh = self.format_block('../templates/hero/button_header.txt')
+            bh = self.format_button(bh)
+            self.f_email = re.sub("%%BUTTON_HEADER%%", bh, self.f_email, re.S)
+            self.f_email = re.sub("%%BUTTON_FOOTER%%", '', self.f_email, re.S)
+        elif self.button is True:
             bh = self.format_block('../templates/hero/button_header.txt')
             bf = self.format_block('../templates/hero/button_footer.txt')
             bh = self.format_button(bh)
@@ -93,6 +109,16 @@ class easyMail:
         elif self.button is False:
             self.f_email = re.sub("%%BUTTON_HEADER%%", '', self.f_email, re.S)
             self.f_email = re.sub("%%BUTTON_FOOTER%%", '', self.f_email, re.S)
+        if self.credit is not '':
+            credit = self.format_credit()
+            self.f_email = re.sub("%%CREDIT%%", credit, self.f_email, re.S)
+        elif self.credit is '':
+            self.f_email = re.sub("%%CREDIT%%", '', self.f_email, re.S)
+        if re.search("%%DONATE_URL%%", self.f_email) and not re.search("\?ac=.", self.donate_footer_url):
+            print("Your donation button URL does not contain a valid source code. Please add one.")
+        elif re.search("%%DONATE_URL%%", self.f_email):
+            self.f_email = re.sub("%%DONATE_URL%%", self.donate_footer_url + '&ea.tracking.id=footer-button~footer-button', self.f_email, re.S)
+
 
     def format_body_a_tag_url(self):
         a = self.format_block('../templates/hero/a.txt')
@@ -112,8 +138,8 @@ class easyMail:
                                   self.f_email, 1, re.S)
             self.body_link_number += 1
 
-    def find_salutation(self):
-        self.f_email = re.sub(r"%%SALUTATION%%", '{salutation~First Name or Friend}', self.f_email, re.S)
+    def find_fname(self):
+        self.f_email = re.sub(r"%%FNAME%%", '{salutation~First Name or Friend}', self.f_email, re.S)
 
     def find_bold(self):
         self.f_email = re.sub(r"(%%BOLD%%)(.*?)(%%BOLD%%)", r"<strong>\2</strong>", self.f_email, re.S)
@@ -128,6 +154,10 @@ class easyMail:
     def find_red(self):
         self.f_email = re.sub(r"(%%RED%%)(.*?)(%%RED%%)", r"<span style='color:red'>\2</span>", self.f_email, re.S)
 
+    def find_special_characters(self):
+        self.f_email = re.sub(r" -- ", " &mdash; ", self.f_email, re.S)
+        self.f_email = re.sub(r">>", "&raquo;", self.f_email, re.S)
+
     def insert_template_urls(self):
         self.f_email = re.sub(r"%%URL%%", self.url, self.f_email, re.S)
 
@@ -137,11 +167,12 @@ class easyMail:
         self.format_body()
         self.insert_into_template()
         self.insert_body_links()
-        self.find_salutation()
+        self.find_fname()
         self.find_bold()
         self.find_italic()
         self.find_underline()
         self.find_red()
+        self.find_special_characters()
         self.insert_template_urls()
 
         with open(self.uf_email_filepath[:-4] + '.html', "w") as f:
