@@ -1,5 +1,1 @@
-<tr>
-						<td align="left" class="container-padding content" style="padding-left:24px;padding-right:24px;padding-top:0px;padding-bottom:0px;background-color:#fff;">
-						<p class="message-content" style="font-family:Arial, Helvetica, sans-serif;margin-top:0px!important; font-size:8px!important;"><span style="font-size8px;"><span style="color: rgb(87, 77, 74);"><em>%%CREDIT%%</em></span></span></p>
-						</td>
-					</tr>
+<p class="message-content" style="font-family:Arial, Helvetica, sans-serif;margin-top:1rem!important; margin-bottom:0rem!important; font-size:12px!important;"><span style="font-size12px;">Photo credit: GettyImages / Anadolu Agency</span></p>

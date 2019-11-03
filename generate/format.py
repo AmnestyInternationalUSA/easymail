@@ -2,9 +2,10 @@ import re
 
 
 class easyMail:
-    def __init__(self, template, uf_email_filepath, hero_image, preview_text, url, donate_footer_url, credit, button=True, action=False):
+    def __init__(self, text, hero_image, preview_text, url, donate_footer_url, credit, button, action,
+                 template='templates/hero/hero_template.txt'):
         self.template = template
-        self.uf_email_filepath = uf_email_filepath
+        self.text = text
         self.hero_image = hero_image
         self.preview_text = preview_text
         self.url = url
@@ -33,27 +34,27 @@ class easyMail:
         return f_block
 
     def format_copy(self):
-        uf_copy = open(self.uf_email_filepath, mode='r')
+        uf_copy = re.findall(r"^(.+)\n+", self.text, re.MULTILINE)
         f_copy = ''
 
         for text in uf_copy:
             if len(text) > 1 and re.search("(%%HERO%%)(.*?)(%%HERO%%)", text, re.S):
                 self.f_hero = re.search("(%%HERO%%)(.*?)(%%HERO%%)", text, re.S).group(2)
-                self.f_hero = (self.format_block('../templates/hero/header_p.txt')
+                self.f_hero = (self.format_block('templates/hero/header_p.txt')
                                + self.f_hero + '</strong></p>')
 
             elif len(text) > 1:
-                f_copy = f_copy + (self.format_block('../templates/hero/body_p.txt')
+                f_copy = f_copy + (self.format_block('templates/hero/body_p.txt')
                                    + text + '</span></p>')
             self.f_copy = f_copy
 
     def format_hero_a_tag_url(self):
-        a = self.format_block('../templates/hero/a.txt')
+        a = self.format_block('templates/hero/a.txt')
         f_a = re.sub('%%URL%%', '{' + self.url + '~headertext' + str(self.hero_link_number) + '}', a, re.S)
         return f_a
 
     def format_hero(self):
-        hero_uf = re.findall(str(self.format_block('../templates/hero/header_p.txt') + '.*?</p>'),
+        hero_uf = re.findall(str(self.format_block('templates/hero/header_p.txt') + '.*?</p>'),
                              self.f_hero, re.S)
         try:
             hero_uf = hero_uf[-1]
@@ -68,21 +69,21 @@ class easyMail:
             self.f_hero = ''
 
     def format_credit(self):
-        credit_uf = self.format_block('../templates/hero/credit.txt')
+        credit_uf = self.format_block('templates/hero/credit.txt')
         credit_f = re.sub('%%CREDIT%%', self.credit, credit_uf, re.S)
         return credit_f
 
     def format_body(self):
         self.f_body = re.sub("(%%HERO%%)(.*?)(%%HERO%%)", '', self.f_copy, re.S)
         graphs_uf = re.findall(
-            str(self.format_block('../templates/hero/body_p.txt') + '.*?</p>'),
+            str(self.format_block('templates/hero/body_p.txt') + '.*?</p>'),
             self.f_body, re.S)
         graphs_uf = graphs_uf[-1]
         graphs_f = re.sub('margin-bottom:1rem', 'margin-bottom:0', graphs_uf, re.S)
         self.f_body = re.sub(graphs_uf, graphs_f, self.f_body, re.S)
 
     def format_button(self, button):
-        if self.action:
+        if self.action == 1:
             return re.sub(">DONATE NOW<", ">TAKE ACTION<", button, re.S)
         else:
             return button
@@ -94,19 +95,19 @@ class easyMail:
         self.f_email = re.sub("%%BODY_TEXT%%", self.f_body, self.f_email)
         self.f_email = re.sub("%%HERO_BANNER_SOURCE%%", self.hero_image, self.f_email)
         self.f_email = re.sub("%%PREVIEW_TEXT%%", self.preview_text, self.f_email)
-        if self.action is False and self.button is True:
-            bh = self.format_block('../templates/hero/button_header.txt')
+        if self.action == 0 and self.button == 1:
+            bh = self.format_block('templates/hero/button_header.txt')
             bh = self.format_button(bh)
             self.f_email = re.sub("%%BUTTON_HEADER%%", bh, self.f_email, re.S)
             self.f_email = re.sub("%%BUTTON_FOOTER%%", '', self.f_email, re.S)
-        elif self.button is True:
-            bh = self.format_block('../templates/hero/button_header.txt')
-            bf = self.format_block('../templates/hero/button_footer.txt')
+        elif self.button == 1:
+            bh = self.format_block('templates/hero/button_header.txt')
+            bf = self.format_block('templates/hero/button_footer.txt')
             bh = self.format_button(bh)
             bf = self.format_button(bf)
             self.f_email = re.sub("%%BUTTON_HEADER%%", bh, self.f_email, re.S)
             self.f_email = re.sub("%%BUTTON_FOOTER%%", bf, self.f_email, re.S)
-        elif self.button is False:
+        elif self.button == 0:
             self.f_email = re.sub("%%BUTTON_HEADER%%", '', self.f_email, re.S)
             self.f_email = re.sub("%%BUTTON_FOOTER%%", '', self.f_email, re.S)
         if self.credit is not '':
@@ -114,14 +115,13 @@ class easyMail:
             self.f_email = re.sub("%%CREDIT%%", credit, self.f_email, re.S)
         elif self.credit is '':
             self.f_email = re.sub("%%CREDIT%%", '', self.f_email, re.S)
-        if re.search("%%DONATE_URL%%", self.f_email) and not re.search("\?ac=.", self.donate_footer_url):
-            print("Your donation button URL does not contain a valid source code. Please add one.")
         elif re.search("%%DONATE_URL%%", self.f_email):
-            self.f_email = re.sub("%%DONATE_URL%%", self.donate_footer_url + '&ea.tracking.id=footer-button~footer-button', self.f_email, re.S)
-
+            self.f_email = re.sub("%%DONATE_URL%%",
+                                  self.donate_footer_url + '&ea.tracking.id=footer-button~footer-button', self.f_email,
+                                  re.S)
 
     def format_body_a_tag_url(self):
-        a = self.format_block('../templates/hero/a.txt')
+        a = self.format_block('templates/hero/a.txt')
         f_a = re.sub('%%URL%%', '{' + self.url + '~body' + str(self.body_link_number) + '}', a, re.S)
         return f_a
 
@@ -174,7 +174,4 @@ class easyMail:
         self.find_red()
         self.find_special_characters()
         self.insert_template_urls()
-
-        with open(self.uf_email_filepath[:-4] + '.html', "w") as f:
-            f.write(self.f_email)
-            f.close()
+        return self.f_email
