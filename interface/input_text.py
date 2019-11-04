@@ -40,5 +40,8 @@ class textFrame(ttk.Frame):
             self.text_input.insert(self.text_input.index(SEL_LAST), tag)
 
     def add_merge_field(self, field):
-        self.text_input.insert(self.text_input.index(INSERT), field)
+        try:
+            self.text_input.replace(self.text_input.index(SEL_FIRST), self.text_input.index(SEL_LAST), field)
+        except TclError:
+            self.text_input.insert(self.text_input.index(INSERT), field)
 

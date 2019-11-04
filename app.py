@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+
 from generate.format import easyMail
 from interface.input_options import inputFrame
 from interface.input_text import textFrame
@@ -46,7 +47,7 @@ class App(ttk.Frame):
                                            donate_footer_url=self.inputFrame.donate_footer_url_entry.get(),
                                            button=self.inputFrame.button_question_var.get(),
                                            action=self.inputFrame.action_question_var.get(),
-                                           credit=self.inputFrame.credit.get()).create_email()
+                                           credit=self.inputFrame.credit_entry.get()).create_email()
             self.textFrame.text_input.replace('1.0', END, self.formatted_text)
             self.warning_label_text.set('')
             self.display_state = 1
