@@ -3,4 +3,5 @@
 *text/*
 interface/__pycache__/
 templates/.DS_Store
+.DS_Store
 venv
