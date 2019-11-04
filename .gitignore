@@ -1,4 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 
 *text/*
-/templates/hero/hero-donate-footer.html
+interface/__pycache__/
+templates/.DS_Store
+venv
