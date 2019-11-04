@@ -10,13 +10,6 @@ class App(ttk.Frame):
     def __init__(self):
         self.root = Tk()
         self.root.title("EasyMail")
-        self.hero_image = ''
-        self.preview_text = ''
-        self.url = ''
-        self.donate_footer_url = ''
-        self.credit = ''
-        self.button = ''
-        self.action = ''
         self.entered_text = ''
         self.formatted_text = ''
         self.display_state = 0
