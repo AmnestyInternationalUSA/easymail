@@ -5,7 +5,8 @@ EasyMail is a simple, one-page Python app with a Tkinter UI that converts user-g
 <strong>To Run:</strong>
 
 Ensure Python 3.7 is installed.
-<strong>Required packages:</strong>:
+
+<strong>Required packages:</strong> Tkinter
 
 Do not alter names of template files or folders, or change their location.
 
