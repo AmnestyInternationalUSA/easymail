@@ -115,7 +115,7 @@ class easyMail:
             self.f_email = re.sub("%%CREDIT%%", credit, self.f_email, re.S)
         elif self.credit is '':
             self.f_email = re.sub("%%CREDIT%%", '', self.f_email, re.S)
-        elif re.search("%%DONATE_URL%%", self.f_email):
+        if re.search("%%DONATE_URL%%", self.f_email):
             self.f_email = re.sub("%%DONATE_URL%%",
                                   self.donate_footer_url + '&ea.tracking.id=footer-button~footer-button', self.f_email,
                                   re.S)

@@ -42,6 +42,7 @@ class inputFrame(ttk.Frame):
         self.action_question.grid(column=1, row=11, sticky=(W, E))
         self.rowconfigure(11, weight=1)
         self.button_question_var = IntVar()
-        self.button_question = ttk.Checkbutton(self, text='Are there buttons in the body of the email and hero?', variable=self.button_question_var)
+        self.button_question = ttk.Checkbutton(self, text='Are there buttons in the body of the email and hero?',
+                                               variable=self.button_question_var)
         self.button_question.grid(column=1, row=12, sticky=(W, E))
         self.rowconfigure(12, weight=1)
