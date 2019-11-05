@@ -5,11 +5,7 @@ from tkinter import ttk
 class inputFrame(ttk.Frame):
     def __init__(self, parent, row, column, sticky):
         ttk.Frame.__init__(self, parent)
-        self.hero_image = StringVar()
-        self.preview_text = StringVar()
-        self.url = StringVar()
-        self.donate_footer_url = StringVar()
-        self.credit = StringVar()
+        self.donate_footer_url = StringVar(self, value='campaignpage_url~130707~https://donate.amnestyusa.org/page/37908/donate/1')
         self.grid(row=row, column=column, sticky=sticky)
         self.columnconfigure(column, weight=1)
         self.hero_image_entry = ttk.Entry(self, width=7)
@@ -27,7 +23,7 @@ class inputFrame(ttk.Frame):
         self.url_entry.grid(column=1, row=6, sticky=(W, E))
         self.rowconfigure(5, weight=1)
         self.rowconfigure(6, weight=1)
-        self.donate_footer_url_entry = ttk.Entry(self, width=7)
+        self.donate_footer_url_entry = ttk.Entry(self, width=7, textvariable=self.donate_footer_url)
         ttk.Label(self, text='Footer Donate URL').grid(column=1, row=7)
         self.donate_footer_url_entry.grid(column=1, row=8, sticky=(W, E))
         self.rowconfigure(7, weight=1)
