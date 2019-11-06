@@ -2,7 +2,7 @@ import re
 
 
 class easyMail:
-    def __init__(self, text, hero_image, preview_text, url, donate_footer_url, credit, button, action,
+    def __init__(self, text, hero_image, preview_text, url, donate_footer_url, credit, button, action, signature,
                  template='templates/hero/hero_template.txt'):
         self.template = template
         self.text = text
@@ -11,6 +11,7 @@ class easyMail:
         self.url = url
         self.donate_footer_url = donate_footer_url
         self.button = button
+        self.signature = signature
         self.f_copy = ''
         self.f_hero = ''
         self.f_body = ''
@@ -88,6 +89,9 @@ class easyMail:
         else:
             return button
 
+    def format_signature(self, signature):
+        return self.format_block(signature)
+
     def insert_into_template(self):
         template = self.load_template(self.template)
         self.f_email = template
@@ -95,6 +99,7 @@ class easyMail:
         self.f_email = re.sub("%%BODY_TEXT%%", self.f_body, self.f_email)
         self.f_email = re.sub("%%HERO_BANNER_SOURCE%%", self.hero_image, self.f_email)
         self.f_email = re.sub("%%PREVIEW_TEXT%%", self.preview_text, self.f_email)
+        self.f_email = re.sub("%%SIGNATURE%%", self.format_signature(self.signature), self.f_email)
         if self.action == 0 and self.button == 1:
             bh = self.format_block('templates/hero/button_header.txt')
             bh = self.format_button(bh)

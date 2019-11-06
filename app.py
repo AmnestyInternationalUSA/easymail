@@ -12,6 +12,7 @@ class App(ttk.Frame):
         self.root.title("EasyMail")
         self.entered_text = ''
         self.formatted_text = ''
+        self.signature_file = ''
         self.display_state = 0
         self.warning_label_text = StringVar()
         self.mainframe = ttk.Frame(self.root, padding="3 3 12 12")
@@ -30,17 +31,27 @@ class App(ttk.Frame):
         self.warning_label = ttk.Label(self.mainframe, textvariable=self.warning_label_text)
         self.warning_label.grid(row=4, column=1, sticky=(W, E))
 
+    def get_signature_format(self):
+        if self.inputFrame.signature_entry_var.get() == 'Margaret Huang':
+            self.signature_file = 'templates/signatures/margaret_huang.txt'
+        elif self.inputFrame.signature_entry_var.get() == 'Andrea Kost':
+            self.signature_file = 'templates/signatures/andrea_kost.txt'
+        else:
+            self.signature_file = 'templates/signatures/margaret_huang.txt'
+
     def submit_form(self):
         if self.display_state == 0:
             self.entered_text = self.textFrame.text_input.get('1.0', END)
         try:
+            self.get_signature_format()
             self.formatted_text = easyMail(text=self.entered_text, hero_image=self.inputFrame.hero_image_entry.get(),
                                            preview_text=self.inputFrame.preview_text_entry.get(),
                                            url=self.inputFrame.url_entry.get(),
                                            donate_footer_url=self.inputFrame.donate_footer_url_entry.get(),
                                            button=self.inputFrame.button_question_var.get(),
                                            action=self.inputFrame.action_question_var.get(),
-                                           credit=self.inputFrame.credit_entry.get()).create_email()
+                                           credit=self.inputFrame.credit_entry.get(),
+                                           signature=self.signature_file).create_email()
             self.textFrame.text_input.replace('1.0', END, self.formatted_text)
             self.warning_label_text.set('')
             self.display_state = 1
