@@ -15,7 +15,7 @@ class textFrame(ttk.Frame):
         self.y_scrollbar.grid(column=2, row=3, sticky=(N, S))
         ttk.Label(self, text='Input Text Below').grid(column=1, row=1)
         self.text_input = Text(self, width=40, height=10, wrap=WORD,
-                               yscrollcommand=self.y_scrollbar.set, exportselection=True)
+                               yscrollcommand=self.y_scrollbar.set, exportselection=True, undo=True)
         self.text_input.grid(column=1, row=3, sticky=(W, E))
         self.button_row = ttk.Frame(self)
         self.button_row.grid(row=2, column=1)
