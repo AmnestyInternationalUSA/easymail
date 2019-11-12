@@ -79,9 +79,9 @@ class easyMail:
         graphs_uf = re.findall(
             str(self.format_block('templates/hero/body_p.txt') + '.*?</p>'),
             self.f_body, re.S)
-        graphs_uf = graphs_uf[-1]
-        graphs_f = re.sub('margin-bottom:1rem', 'margin-bottom:0', graphs_uf, re.S)
-        self.f_body = re.sub(graphs_uf, graphs_f, self.f_body, re.S)
+        graphs_uf = graphs_uf[:-1] + [re.sub('margin-bottom:1rem', 'margin-bottom:0', graphs_uf[-1], re.S)]
+        self.f_body = ''.join(graphs_uf)
+        print(self.f_body)
 
     def format_button(self, button):
         if self.action == 1:
